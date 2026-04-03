@@ -66,7 +66,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('scroll', function () {
         let scroll = window.scrollY;
-        document.querySelector('.hero').style.transform = 'translateY(' + scroll * 0.3 + 'px)';
+        if (window.innerWidth > 768) {
+            document.querySelector('.hero').style.transform = 'translateY(' + scroll * 0.3 + 'px)';
+        } else {
+            // Reset transform jika di mobile agar tidak miring/getar
+            document.querySelector('.hero').style.transform = 'none';
+        }
     });
 
     const nameText = "Dita";
@@ -86,31 +91,48 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("name-text").textContent = "";
     typeName();
 
-    const counters = document.querySelectorAll('.counter');
+    // 1. Fungsi utama untuk menjalankan angka
+const runCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const start = +counter.getAttribute('data-start');
+    const plus = counter.getAttribute('data-plus') || '';
+    let count = start;
+    
+    // Sesuaikan durasi (3000ms = 3 detik)
+    const totalDuration = 3000; 
+    const stepTime = Math.max(Math.floor(totalDuration / target), 50);
 
-counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const start = +counter.getAttribute('data-start');
-        const plus = counter.getAttribute('data-plus') || '';
-        let count = start;
-        const totalDuration = 3000; // total durasi animasi dalam ms
-        const stepTime = Math.floor(totalDuration / target); // waktu per increment
-
-        const increment = () => {
-            if (count < target) {
-                count++;
-                counter.textContent = count + plus;
-                setTimeout(increment, stepTime);
-            } else {
-                counter.textContent = target + plus;
-            }
-        };
-
-        increment();
+    const increment = () => {
+        if (count < target) {
+            count++;
+            counter.textContent = count + plus;
+            setTimeout(increment, stepTime);
+        } else {
+            counter.textContent = target + plus;
+        }
     };
 
-    updateCount();
+    increment();
+};
+
+// 2. Setup Intersection Observer
+const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        // Jika elemen "About Me" atau Statistik masuk ke area pandang (viewport)
+        if (entry.isIntersecting) {
+            const counter = entry.target;
+            runCounter(counter); // Jalankan fungsi angka
+            observer.unobserve(counter); // Stop observing supaya gak ke-trigger dua kali
+        }
+    });
+}, {
+    threshold: 0.5 // Angka baru jalan kalau 50% bagian elemen sudah muncul di layar
+});
+
+// 3. Daftarkan semua elemen counter ke observer
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+    counterObserver.observe(counter);
 });
 
     const cards = document.querySelectorAll(".skill-card");
@@ -185,11 +207,11 @@ counters.forEach(counter => {
 });
 
 function toggleMenu() {
-  document.getElementById("navMenu").classList.toggle("show");
+    document.getElementById("navMenu").classList.toggle("show");
 }
 
 document.querySelectorAll('#navMenu a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.getElementById("navMenu").classList.remove("show");
-  });
+    link.addEventListener('click', () => {
+        document.getElementById("navMenu").classList.remove("show");
+    });
 });

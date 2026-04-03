@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dita Portfolio</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="scrollBar"></div>
+    <div class="glow"></div>
+    <div class="glow2"></div>
+
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#">
+                <h2
+                    class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-fadeIn hover:scale-110 transition duration-300">
+                    Portfolio
+                </h2>
+            </a>
+
+            <!-- HAMBURGER -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                ☰
+            </div>
+
+            <!-- MENU -->
+            <div class="menu" id="navMenu">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">×</span>
+            <img id="modal-img" src="" alt="preview">
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero fade-up">
+        <div class="wrapper hero-container">
+
+            <div class="hero-text">
+                <h1 class="title ">
+                    Hi, I'm <span id="name-text" class="animated-name">Dita</span>
+                </h1>
+                <p class="subtitle">
+                    <span id="typing"></span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn">Explore Portfolio</a>
+                    <a href="files/cv.pdf" class="btn-cv" download>Download CV</a>
+                </div>
+            </div>
+
+            <div class="hero-photo">
+                <img src="images/profile-nobg.png" class="photo">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section fade-up">
+        <div class="wrapper">
+
+            <h2 class="section-title animated-name">About Me</h2>
+
+            <div class="about-container">
+                <div class="card about-text fade-left">
+                    <p>
+                        My name is <b>Radita Nur Ilmah Fauziyya</b>, or <b>Dita</b> for short.
+                        I am a <b>Software Engineer</b> with experience in
+                        fintech product development, specializing in
+                        backend development, frontend development,
+                        API integration, system integration, and
+                        financial transaction systems.
+                    </p>
+
+                    <p>
+                        I have experience developing fintech systems including
+                        Payment Gateway, Mini ATM,
+                        transaction switching, encryption systems, and system integrations.
+                    </p>
+
+                    <p>
+                        I am passionate about <b>learning new technologies</b>, solving problems,
+                        and building reliable systems. In addition to software engineering,
+                        I also work as a freelance <b>Digital Arts Pro Tutor</b> teaching 2D and 3D design,
+                        and I have experience in 3D and AR/VR development.
+                    </p>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat fade-up">
+                        <h3 class="counter" data-start="0" data-target="3" data-plus="+">1</h3>
+                        <p>Years Experience</p>
+                    </div>
+
+                    <div class="stat fade-up">
+                        <h3 class="counter" data-start="0" data-target="10" data-plus="+">1</h3>
+                        <p>Projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section fade-up">
+        <div class="wrapper">
+            <h2 class="section-title animated-name">Education</h2>
+            <div class="card fade-left education-card">
+                <div class="education-logo">
+                    <img src="images/logoipb.png" alt="IPB University">
+                </div>
+                <div class="education-content">
+                    <h3>Diploma in <b>Computer Engineering</b></h3>
+
+                    <p class="gray">
+                        <span class="highlight">IPB University</span> — Bogor, West Java<br>
+                        <span class="small">Jul 2018 – Aug 2021</span>
+                    </p>
+
+                    <p class="mt">
+                        <b>GPA:</b>
+                        3.86 / 4.00 — <span class="highlight">Cum Laude</span>
+                    </p>
+
+                    <p class="mt">
+                        <b>Final Project:</b> Developed a
+                        <span class="highlight-soft">non-invasive hemoglobin measurement device</span>
+                        using Raspberry Pi, in collaboration with the Department of Physics, IPB.
+                    </p>
+
+                    <p class="small mt">
+                        <b>Scholarships:</b>
+                        <span class="highlight-soft">PPA Scholarship (2019), Bank Indonesia Scholarship (2020)</span>
+                    </p>
+
+                    <p class="small mt">
+                        Actively participated in 10+ campus events,
+                        including webinars, faculty-led research, technical skills training,
+                        and campus organizations.
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section fade-up">
+        <div class="wrapper">
+
+            <h2 class="section-title animated-name">Skills</h2>
+
+            <!-- Programming Languages -->
+            <h3 class="skill-category fade-up">💻 Programming Languages</h3>
+            <div class="skills-grid fade-left">
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg">
+                    <span>C#</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+                    <span>JavaScript</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+                    <span>TypeScript</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+                    <span>PHP</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg">
+                    <span>Kotlin</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+                    <span>HTML</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+                    <span>CSS</span>
+                </div>
+
+            </div>
+
+            <!-- Frameworks -->
+            <h3 class="skill-category fade-up">🧩 Frameworks & Libraries</h3>
+            <div class="skills-grid fade-left">
+
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg">
+                    <span>.NET / ASP.NET Core</span>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+                    <span>React</span>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg">
+                    <span>Node.js</span>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg">
+                    <span>Express.js</span>
+                </div>
+
+                <div class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg">
+                    <span>Laravel</span>
+                </div>
+
+            </div>
+
+            <!-- Backend -->
+            <h3 class="skill-category fade-up">⚙️ Backend & API</h3>
+            <div class="skills-grid fade-left">
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2165/2165004.png">
+                    <span>REST API</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/api-integration.png">
+                    <span>API Integration</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/unit-testing.png">
+                    <span>Unit Testing</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png">
+                    <span>NUnit / Moq</span>
+                </div>
+
+            </div>
+
+            <!-- Database -->
+            <h3 class="skill-category fade-up">🗄️ Database</h3>
+            <div class="skills-grid fade-left">
+
+                <div class="skill-card fade-left">
+                    <img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg">
+                    <span>SQL Server</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">
+                    <span>PostgreSQL</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+                    <span>MySQL</span>
+                </div>
+
+            </div>
+
+            <!-- 3D & AR/VR -->
+            <h3 class="skill-category fade-up">🎮 3D, AR & VR</h3>
+            <div class="skills-grid fade-left">
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg">
+                    <span>Blender</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg">
+                    <span>Unity</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/augmented-reality.png">
+                    <span>Augmented Reality</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/virtual-reality.png">
+                    <span>Virtual Reality</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/vuforia.png">
+                    <span>Vuforia</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/meta.svg">
+                    <span>Meta / Oculus</span>
+                </div>
+
+            </div>
+
+            <!-- Tools -->
+            <h3 class="skill-category fade-up">🛠️ Tools</h3>
+            <div class="skills-grid fade-left">
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+                    <span>Git</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg">
+                    <span>Postman</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/microsoft-office.png">
+                    <span>Microsoft Office</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png">
+                    <span>Canva</span>
+                </div>
+
+                <div class="skill-card fade-left">
+                    <img src="images/icons/trello.png">
+                    <span>Trello</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Experience -->
+    <section id="experience" class="section fade-up">
+        <div class="wrapper">
+            <h2 class="section-title animated-name">Work Experience</h2>
+
+            <div class="experience-list">
+
+                <!-- Arranet -->
+                <div class="card experience-card fade-left">
+                    <button class="exp-detail">Detail</button>
+                    <div class="exp-modal">
+                        <img src="images/projects/arn.jpeg">
+                    </div>
+                    <h3>Software Engineer / Product Development</h3>
+                    <p class="gray">PT. Arranet Indonesia Sejahtera – Jakarta</p>
+                    <p class="gray small">Aug 2023 – Present</p>
+                    <p class="mt">
+                        Backend and Frontend development for financial systems, REST APIs, payment gateway, Mini ATM,
+                        and BI-FAST integrations using .NET and React.
+                    </p>
+                </div>
+
+                <!-- Kodland -->
+                <div class="card experience-card fade-left">
+                    <button class="exp-detail">Detail</button>
+                    <div class="exp-modal">
+                        <img src="images/projects/teaching.png">
+                    </div>
+                    <h3>Digital Arts Pro Tutor</h3>
+                    <p class="gray">Kodland – Jakarta</p>
+                    <p class="gray small">Aug 2023 – Present</p>
+                    <p class="mt">
+                        Teaching digital design, 2D/3D design, and basic web design using Photopea, Tilda, and Blender.
+                    </p>
+                </div>
+
+                <!-- Otsuka -->
+                <div class="card experience-card fade-left">
+                    <button class="exp-detail">Detail</button>
+                    <div class="exp-modal">
+                        <img src="images/projects/otsuka.JPG">
+                    </div>
+                    <h3>Application Developer & Web Developer Intern</h3>
+                    <p class="gray">PT. Amerta Indah Otsuka – Sukabumi, West Java</p>
+                    <p class="gray small">Jun 2022 – Jun 2023</p>
+                    <p class="mt">
+                        Developed AR/VR training applications, digital twin simulations, and internal web applications
+                        using Unity, Blender, and React.
+                    </p>
+                </div>
+
+                <!-- IPB Research Assistant -->
+                <div class="card fade-left">
+                    <h3>Research Assistant (LPDP Research Project)</h3>
+                    <p class="gray">IPB University – Bogor, West Java</p>
+                    <p class="gray small">Jun 2021 – Aug 2022</p>
+                    <p class="mt">
+                        Worked on non-invasive medical device research for hemoglobin and blood glucose measurement and
+                        conducted testing and data collection.
+                    </p>
+                </div>
+
+                <!-- Lecturer Assistant -->
+                <div class="card fade-left">
+                    <h3>Physics Lecturer Assistant</h3>
+                    <p class="gray">Vocational School, IPB University – Bogor</p>
+                    <p class="gray small">Aug 2021 – Dec 2021</p>
+                    <p class="mt">
+                        Assisted lecturers in teaching physics courses, supervised laboratory sessions, and evaluated
+                        student practicum reports.
+                    </p>
+                </div>
+
+                <!-- Internship -->
+                <div class="card fade-left">
+                    <h3>Internship – Department of Physics</h3>
+                    <p class="gray">FMIPA IPB University – Bogor</p>
+                    <p class="gray small">Feb 2021 – Apr 2021</p>
+                    <p class="mt">
+                        Developed a non-invasive hemoglobin measurement device using Raspberry Pi and built two research
+                        prototypes.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section fade-up">
+        <div class="wrapper">
+
+            <h2 class="section-title animated-name">Projects</h2>
+
+            <div class="grid">
+
+                <div class="card fade-left">
+                    <h3>Mini ATM System</h3>
+                    <p class="gray">
+                        Financial transaction system for Mini ATM including withdrawal,
+                        transfer, balance inquiry, and transaction switching.
+                    </p>
+                    <div class="tech-stack">
+                        <span>C#</span>
+                        <span>.NET</span>
+                        <span>SQL Server</span>
+                        <span>PostgreSQL</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn-small" disabled>
+                            Private
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Payment Gateway System</h3>
+                    <p class="gray">
+                        Payment gateway platform handling financial transactions,
+                        API integrations, and transaction processing for digital payments.
+                    </p>
+                    <div class="tech-stack">
+                        <span>C#</span>
+                        <span>.NET</span>
+                        <span>REST API</span>
+                        <span>API Integration</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn-small" disabled>
+                            Private
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>BI-FAST Disbursement System</h3>
+                    <p class="gray">
+                        Bulk salary transfer system enabling transfers to thousands of recipients
+                        in a single execution using BI-FAST integration.
+                    </p>
+                    <div class="tech-stack">
+                        <span>.NET</span>
+                        <span>React</span>
+                        <span>SQL Server</span>
+                        <span>PostgreSQL</span>
+                        <span>BI-FAST</span>
+                        <span>API Integration</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn-small" disabled>
+                            Private
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Billing Integration System</h3>
+                    <p class="gray">
+                        Integration system for third-party billing services including
+                        property tax, mobile airtime, e-wallet top-up, and digital payments.
+                    </p>
+                    <div class="tech-stack">
+                        <span>.NET</span>
+                        <span>REST API</span>
+                        <span>Integration</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn-small" disabled>
+                            Private
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Augmented Reality Applications</h3>
+                    <p class="gray">
+                        Developed several Augmented Reality applications for Android including
+                        Genset Operation Work Instruction, Product Introduction, and Education Promotion.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Unity</span>
+                        <span>Vuforia</span>
+                        <span>Blender</span>
+                        <span>3D Design</span>
+                        <span>AR</span>
+                        <span>Android</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="preview-container">
+                            <button class="btn-small">Detail</button>
+
+                            <div class="preview-modal">
+                                <img src="images/projects/products.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Virtual Reality</h3>
+                    <p class="gray">
+                        Developed Virtual Reality applications using Oculus Quest 2 for Boiler
+                        and Genset introduction.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Unity</span>
+                        <span>Blender</span>
+                        <span>Oculus</span>
+                        <span>3D Design</span>
+                        <span>VR</span>
+                        <span>Simulation</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="preview-container">
+                            <button class="btn-small">Detail</button>
+
+                            <div class="preview-modal">
+                                <img src="images/projects/vr.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Digital Twin Boiler</h3>
+                    <p class="gray">
+                        Digital twin simulation application for boiler system training
+                        with interactive 3D visualization.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Unity</span>
+                        <span>Blender</span>
+                        <span>C#</span>
+                        <span>REST API</span>
+                        <span>Simulation</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn-small" disabled>
+                            Private
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Other Web Applications</h3>
+                    <p class="gray">
+                        Developed internal web applications including employee request,
+                        suggestion, and feedback system, and Visitor Management System
+                        to digitize manual guest book processes.
+                    </p>
+                    <div class="tech-stack">
+                        <span>React</span>
+                        <span>JavaScript</span>
+                        <span>Web App</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <button class="btn-small" disabled>
+                            Private
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Non-Invasive Hemoglobin Device</h3>
+                    <p class="gray">
+                        Research project for non-invasive hemoglobin measurement device
+                        using Raspberry Pi and sensor data processing.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Raspberry Pi</span>
+                        <span>Research</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="preview-container">
+                            <button class="btn-small">Detail</button>
+
+                            <div class="preview-modal">
+                                <img src="images/projects/ta.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card fade-left">
+                    <h3>Teaching</h3>
+                    <p class="gray">
+                        Taught 2D/3D design and modeling using Blender to students via Zoom,
+                        including basic modeling, animation, and rendering.
+                    </p>
+                    <div class="tech-stack">
+                        <span>Blender</span>
+                        <span>3D Design</span>
+                        <span>Teaching</span>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="preview-container">
+                            <button class="btn-small">Detail</button>
+
+                            <div class="preview-modal">
+                                <img src="images/projects/teaching.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="section fade-up">
+        <div class="wrapper">
+            <h2 class="section-title animated-name">Certifications/Courses</h2>
+
+            <div class="cert-grid fade-left">
+                <img src="images/certificates/1.jpeg">
+                <img src="images/certificates/2.jpeg">
+                <img src="images/certificates/3.jpg">
+                <img src="images/certificates/4.jpg">
+                <img src="images/certificates/5.jpeg" class="portrait">
+                <img src="images/certificates/6.png">
+                <img src="images/certificates/7.png">
+                <img src="images/certificates/8.png">
+                <img src="images/certificates/9.png">
+                <img src="images/certificates/10.png">
+                <img src="images/certificates/11.png">
+                <img src="images/certificates/12.jpg">
+                <img src="images/certificates/13.png">
+                <img src="images/certificates/14.png">
+                <img src="images/certificates/15.png">
+                <img src="images/certificates/17.png">
+                <img src="images/certificates/18.png">
+                <img src="images/certificates/19.png">
+            </div>
+
+        </div>
+    </section>
+
+    <div id="certModal" class="cert-modal">
+        <img id="certPreview">
+    </div>
+
+    <!-- Contact -->
+    <section id="contact" class="section fade-up">
+        <div class="wrapper">
+            <h2 class="section-title animated-name">Contact</h2>
+
+            <div class="contact-grid">
+
+                <a href="https://maps.google.com" class="contact-link fade-left">
+                    <img src="images/icons/location.png">
+                    <span>Sukabumi, West Java, Indonesia</span>
+                </a>
+
+                <a href="mailto:raditanur83@gmail.com" class="contact-link fade-left">
+                    <img src="images/icons/gmail.png">
+                    <span>raditanur83@gmail.com</span>
+                </a>
+
+                <a href="https://wa.me/6285794321544" class="contact-link fade-left">
+                    <img src="images/icons/whatsapp.png">
+                    <span>0857-9432-1544</span>
+                </a>
+
+                <a href="https://www.linkedin.com/in/raditanif/" class="contact-link fade-left">
+                    <img src="images/icons/linkedin.png">
+                    <span>linkedin.com/in/raditanif</span>
+                </a>
+
+                <a href="https://github.com/raditanif16" class="contact-link fade-left">
+                    <img src="images/icons/github.png">
+                    <span>github.com/raditanif16</span>
+                </a>
+
+                <a href="https://www.instagram.com/raditanif/" class="contact-link fade-left">
+                    <img src="images/icons/instagram.png">
+                    <span>Raditanif</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 Radita Nur Ilmah Fauziyya</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
